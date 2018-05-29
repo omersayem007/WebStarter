@@ -1,0 +1,20 @@
+<students>
+    <student id="23">
+        <name>john Carter</name>
+        <admission>
+            <day>25</day>
+            <month>12</month>
+            <year>2015</year>
+        </admission>
+    </student>
+
+    <student id="29">
+        <name>Bob Marshal</name>
+        <admission>
+            <day>13</day>
+            <month>1</month>
+            <year>1999</year>
+        </admission>
+    </student>
+
+</students>

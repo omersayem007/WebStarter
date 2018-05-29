@@ -1,0 +1,26 @@
+<employees>
+    <employee id="1">
+        <name> John doe </name>
+        <address>
+            <house>H# 38</house>
+            <road>R# 18</road>
+            <location>Mirpur</location>
+            <city>Dhaka</city>
+        </address>
+        <depertment>sales</depertment>
+        <salary>$120000</salary>
+    </employee>
+
+    <employee id="2">
+        <name> Mark </name>
+        <address>
+            <house>H# 38</house>
+            <road>R# 18</road>
+            <location>Mirpur</location>
+            <city>Dhaka</city>
+        </address>
+        <depertment>sales</depertment>
+        <salary>$120000</salary>
+    </employee>
+
+</employees>
