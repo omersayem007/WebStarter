@@ -1,8 +1,8 @@
 
 <?php
-	
+	require "db.php";
 	session_start();
-
+	
 	if(isset($_POST['submit'])){
 
 		$username = $_POST['username'];
@@ -14,21 +14,18 @@
 
 		}else{
 
-			$myfile = fopen("user.txt", 'r');
+			$conn = DBconnection();
+			$sql= "SELECT * from user";
+			$result = mysqli_query($conn, $sql);
 			$isvalid = "";
 
-			while (!feof($myfile)) 
-			{
-				
-				$data = fgets($myfile);
-				$arr = explode("|", $data);
-				
-				if($arr[0] == $username && $arr[1] == $password){
-					$isvalid = "validuser";
+			while($row = mysqli_fetch_assoc($result)){
+
+				if( $username == $row['userName'] && $password == $row['password'] ){
+					$isvalid = "validuser" ;
 				}
 			}
-
-			//echo $isvalid;
+			
 
 			if($isvalid == "validuser"){
 

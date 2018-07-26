@@ -1,14 +1,11 @@
-
-
-
-
-
 <?php
+
+require "db.php";
 	error_reporting(0);
 	function checkAscii($input){
 		$flag=0;
 		$inputArray = str_split( $input);
-  
+
 		for( $i=0 ; $i < strlen($input) ; $i++ ){
 			if( (ord($inputArray[$i]) >= 97 && ord($inputArray[$i]) <= 122) || ord($inputArray[$i]) == 32 || (ord($inputArray[$i]) >= 65 && ord($inputArray[$i]) <=90) ){
 				$flag++;
@@ -24,7 +21,6 @@
     
 	function checkNaming($name){
 		if(strlen($name) >=2 && checkAscii($name)){
-			
 			return true;
 		}else{
 			return false;
@@ -35,16 +31,16 @@
 		$flag=0;
 		$inputArray = str_split( $email);
 		$findme   = '@';
-    $findme2 =".";
+    	$findme2 =".";
 		$pos = strpos($email, $findme);
-    $pos2 = strpos($email, $findme2);
-  
-	  if( ($inputArray[0] != "@" || $inputArray[0] != "." || $inputArray[$pos+1] != "." ) && ($pos && $pos2)) {
+		$pos2 = strpos($email, $findme2);
+	
+		if( ($inputArray[0] != "@" || $inputArray[0] != "." || $inputArray[$pos+1] != "." ) && ($pos && $pos2)) {
 		return true;
-	  }else{
+		}	else{
 		return false;
-	}
-        }
+		}	
+    }
         
 		function checkDater($day,$month,$year){
 			if( ($day >=0 && $day <=31 ) && ($month >=1 && $month <=12 ) && ($year >=1900 && $year <=2018 ) ){
@@ -83,21 +79,23 @@
 					$userID		=$_POST['userId'];
                     $password =$_POST['password'];
                     
+					$conn = DBconnection();
+					$sql= "INSERT into user values('','$name', '$password')";
 
-                    $myfile = fopen("user.txt", 'a');
-			        $data = $name."|".$password."|".$gender."\r\n";
-			        fwrite($myfile, $data);
-                    fclose($myfile);
-                    
-			        header("location: personalInfo.php");
+					if(mysqli_query($conn, $sql)){
+						header("location: login.php");
+					}else{
+						header("location: regCheck.php?status=error");
+					}
+
+					mysqli_close($conn);
 					
 				}
 				else{
 					header("location: registration.php?status=Error");
 					
 				}
-				
-				
+
 		}
 	
 	}

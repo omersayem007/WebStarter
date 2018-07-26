@@ -1,6 +1,6 @@
 <?php
-  error_reporting(0);
-  session_start();
+	error_reporting(0);
+	session_start();
 	
 	if(isset($_GET['status'])){
 		$status = $_GET['status'];
@@ -28,19 +28,15 @@
 
 
         
-		<fieldset style="position:fixed;top:40%;left:45% ;margin-top: -50px;
-  margin-left: -100px;" >
+		<fieldset style="position:fixed;top:40%;left:45% ;margin-top: -50px; margin-left: -100px;" >
 			<legend>LOGIN</legend>
 
-			<form method="post" action="loginCheck.php">
-				
+			<form method="post" action="loginCheck.php">	
 				User Name: <input type="text" name="username"><br/><br/>
-        
-				Password : <input type="password" name="password"><br/><br/>
-							<input type="checkbox" name="remember"> Remember me ?</br>
-						   <input type="submit" name="submit" value="Submit"></br>
-						   
-						   <a href="registration.php" > New User ? </a>
+				Password : 	<input type="password" name="password"><br/><br/>
+				<input type="checkbox" name="remember"> Remember me ?</br>
+				<input type="submit" name="submit" value="Submit"></br>
+				<a href="registration.php" > New User ? </a>
 			</form>
 		</fieldset>
 
