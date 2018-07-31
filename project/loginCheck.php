@@ -7,12 +7,6 @@
 
 		$username = $_POST['username'];
 		$password = $_POST['password'];
-		
-		if($username == "" || $password == ""){
-            
-			header("location: login.php?status=nullvalue");
-
-		}else{
 
 			$conn = DBconnection();
 			$sql= "SELECT * from user";
@@ -36,7 +30,6 @@
 			}
 			fclose($myfile);
 
-		}
 	}
 
 ?>
