@@ -1,4 +1,0 @@
-
-sharfa|12|Male
-preetom|12|Male
-noboranjon|123|Other

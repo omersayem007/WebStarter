@@ -2,7 +2,7 @@
 
 	function DBconnection(){
         
-		$conn= mysqli_connect('localhost', 'root', '', 'weatherly');
+		$conn= mysqli_connect('localhost', 'root', '', 'weavis');
 		return $conn;
     }
     
