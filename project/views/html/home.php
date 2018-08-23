@@ -135,7 +135,6 @@ if( $_SESSION['userSession']=="123"  || $_COOKIE['abc'] == "123" ){
         <tr >
             <td>
 
-            <button>load</button>
             Footer 
             </td>
 
@@ -143,8 +142,7 @@ if( $_SESSION['userSession']=="123"  || $_COOKIE['abc'] == "123" ){
 
         </table>
 
-           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="../js/currentWeather.js"></script>
+
 
 </body>
 

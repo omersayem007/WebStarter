@@ -52,9 +52,16 @@
                      Admin &nbsp &nbsp
                     </a>
                     </td>
-                    
+
+
                     <td>
-                    <input   type="text" placeholder="Search">
+                    <a href="moreNav.php">
+                    More &nbsp &nbsp
+                    </a>
+                    </td>
+                                
+                    <td>
+                    <input   type="text" placeholder="Search" >
                     &nbsp &nbsp
                     </td>
 
