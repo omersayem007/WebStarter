@@ -1,9 +1,3 @@
-<?php
-	session_start();
-	
-	if($_SESSION['def']=='456')
-	{
-?>
 
 <html>
 
@@ -42,17 +36,11 @@
 							
 							
 						</tr>
-						 <tr >
-						 
-                            <td align="left" valign="top">04.15am</td>
-							<td align="left" valign="top">05.20 </td>
-							<td align="left" valign="top">12.40pm </td>
-							<td align="left" valign="top">4.20pm </td>
-							<td align="left" valign="top"> 6.47pm </td>
-							<td align="left" valign="top"> 7.47pm </td>
-							
-							
+						 <tr id ="data" >
+                            
+
 						</tr>
+						
                       </table> 
 	</td></tr>
 	
@@ -63,12 +51,10 @@
 
 					
 </tr></table>
+
+<button>load</button>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="../js/prayerTime.js"></script>
 </body>
 
 </html>
-<?php
-}else{
-		header("location: login.php");
-
-	}
-?>

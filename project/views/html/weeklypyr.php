@@ -1,9 +1,4 @@
-<?php
-	session_start();
-	
-	if($_SESSION['def']=='456')
-	{
-?>
+
 
 <html>
 
@@ -117,9 +112,3 @@
 </body>
 
 </html>
-<?php
-}else{
-		header("location: login.php");
-
-	}
-?>

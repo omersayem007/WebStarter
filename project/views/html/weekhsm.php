@@ -1,15 +1,4 @@
-<?php
-	session_start();
-	
-	if($_SESSION['def']=='456')
-	{
-		if(isset($_GET['status'])){
-		$status = $_GET['status'];
-		}
-   else	
-	   $status="";
-		
-?>
+
 
 <html>
 
@@ -131,9 +120,3 @@
 </body>
 
 </html>
-<?php
-}else{
-		header("location: login.php");
-
-	}
-?>

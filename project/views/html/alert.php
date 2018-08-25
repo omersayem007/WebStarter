@@ -10,38 +10,27 @@ if( isset( $_SESSION['userSession'] ) || isset($_COOKIE['abc']) ){
 
 <tr >
     <td align="center">
+        <h1>Hourly</h1>
 
-        <h2> Raining With in a Minute  !</h2>
+        <h2 id="hourlyUpdate"> </h2>
 
-        <ul>
-
-        <li>
-         Temparature : 28°C
-        </li>
-        <li>
-         Humidity : 87%
-        </li>
-        </ul>
 
     </td>
 
     <td align="center">
 
-    <h2> Heavy thunderstrom in your area </h2>
+    <h1>Weekly OverAll</h1>
 
-    <ul>
-
-    <li>
-    Location:</br>
-    latitude : 80 </br>
-    longitude : 60
-    </li>
-
-    </ul>
+    <h2 id="weeklyUpdate">  </h2>
 
     </td>
 
 </tr>
+
+<button>Load</button>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="../js/fetchAlert.js"></script>
 
 </table>
 
