@@ -31,6 +31,8 @@
 			<form method="post" action="controllers/logCheckController.php">	
 				User Name: <input type="text" name="username" id="userName"><br/><br/>
 				Password : 	<input type="password" name="password" id="password"><br/><br/>
+				<input type="radio" name="userType" value="Admin"> Admin <br/>
+				<input type="radio" name="userType" value="User"> User<br/>
 				<input type="checkbox" name="remember"> Remember me ?</br>
 				<input type="submit" name="submit" value="Submit" onclick="return checkEmpty()"></br>
 				<a href="views/html/registration.php" > New User ? </a>
