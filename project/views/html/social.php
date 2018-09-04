@@ -1,93 +1,150 @@
 <?php
+error_reporting(0);
 session_start();
-if( isset( $_SESSION['userSession'] ) || isset($_COOKIE['abc']) ){
-    include "horizontalNav.php";
+if( $_SESSION['userSession']=="123"  || $_COOKIE['abc'] == "123" ){
+
     ?>
 
-<html>
 
-<head>
-    <title></title>
-</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.0/css/bulma.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.
+css">
+<link rel="stylesheet" href="../css/menuStyle.css">
+<link rel="stylesheet" href="../css/weather-icons.min.css">
+<link rel="stylesheet" href="../css/postStyle.css">
 
-<body>
-<table border="1"  height="550px" width="850px" align="center">
-        <tr>
-                <td height="550px" width="50px">
 
-                                    <table  height="555px" width="50px" >
-                                        <tr><tr><td ><a href="#">Now</a></td></tr>
-                                        <tr><td ><a href="home.php"> Home </a></td></tr>
 
-                                    </table>
-                </td>
+
+<div class="columns">
+  <div class="column is-one-fifth">
+
+      <aside class="menu">
+
+  <ul class="menu-list" >
+
+<li>
+    <a class="navbar-item" href="home.php" style="color:white" >
+    Now 
+    </a>
+</li>
+
+<li>
+    <a class="navbar-item" href="social.php" style="color:white">
+    social 
+    </a>
+
+    <a class="navbar-item" href="feedBack.php" style="color:white">
+    Feedback
+    </a>
+</li>
+
+<li>
+    <a class="navbar-item" href="experts.php" style="color:white">
+    Experts Analysis
+    </a>
+</li>
+
+</ul>
+
+<ul class="menu-list">
+
+<li>
+  <a style="color:white" >Forecast</a>
+  <ul>
+    <li><a style="color:white" href="hourly.php">Hourly</a></li>
+    <li><a style="color:white" href="weekly.php">Weekly</a></li>
+  </ul>
+</li>
+</ul>
+
+
+<ul class="menu-list">
+
+<li>
+  <a style="color:white" >Recommendation </a>
+  <ul>
+    <li><a style="color:white" href="health.php">Personalized </a></li>
+    <li><a style="color:white" href="food.php">Food</a></li>
+    <li><a style="color:white" href="travel.php">Travel</a></li>
+    <li><a style="color:white" href="#">Movie</a></li>
+    <li><a style="color:white" href="#">Music</a></li>
+  </ul>
+</li>
+</ul>
+
+<ul class="menu-list">
+
+<li>
+  <a style="color:white"  href="prayer.php">Prayer Time </a>
+</li>
+</ul>
+    <ul>
+    <li>
+        <a class="navbar-item" href="userTips.php" style="color:white">
+            Tips 
+        </a>
+    </li>
+    </ul>
+
+    <li>
+        
+            <button class="button is-primary" onclick="window.location.href='logout.php'">Logout</button>
+       
+    </li>
+
+</ul>
+</aside>
+
+
+  </div>
+
+
+<!-- tiles starts -->
+    <div class="column" >
+
+        <section class="columns" >
+
+            <aside  class="column is-half" id="flex-container">
+
+
+                <?php
+
+require "../../models/getPost.php"; 
+
+$result = getPost();
+
+while($row = mysqli_fetch_assoc($result)){
+    echo "<div class='card' id='flex-item'>
+                <div class='card-content'>.
+                    <p class='title' id='post'>".$row['post']."</p>
+                    <p class='subtitle' id='name'>".$row['name']."</p>
+                </div>
                 
-                <td height="455px" width="845px" align="left" valign="top">
-                        <table border="1" height="55px" width="845px" >
-                                            <tr >
-                                                <td colspan="2" align="center" valign="center">
-                                                    <h3> Search Hashtag news based on weather <br/></h3>
+            </div>" ;
+        }
 
-                                                    <input type="text" name="searchTag" value="search" >
+?>
 
-                                                </td>
-                                            </tr>
+               
 
-                                            <tr align="center" >
-                                                <td>
-                                                    <table border="1"  width="850px">
-                                                        <tr>
-                                                            <td height="280px">
+            </aside>
 
-                                                             <img src="harricane.jpg"></br>
-                                                                AccuWeather<br>
-                                                                <i>9 minutes ago</i></br>
-                                        This whirlwind formed over fissure 8 of the Kilauea</br> volcano in Hawaii on July 10.</br>
-                                                            <input type="submit" name="upVote" value="Up Vote">
-                                                            <input type="submit" name="downVote" value="Down Vote">
-                                                            </td>
+        </section>
 
-                                                        </tr>
+  <!-- tiles End -->
+
+  </div>
+  
 
 
-                                                        <tr>
-                                                        <td height="280px">
-
-                                                        <img src="harricane.jpg"></br>
-                                                                    AccuWeather<br>
-                                                                    <i>9 minutes ago</i></br>
-                                                                    This whirlwind formed over fissure 8 of the Kilauea</br> volcano in Hawaii on July 10.
-                                                                    </br>
-                                                            <input type="submit" name="upVote" value="Up Vote">
-                                                            <input type="submit" name="downVote" value="Down Vote">
-                                                                    </td>
-                                                           
-
-                                                        </tr>
-
-                                                    </table>
-                                                </td>
-                                             </tr>
-
-                        </table>
-                </td>
-                        
-        </tr>
-
-        </td>
-
-        </tr>
+</div>
 
 
-
-</table>
-</body>
-
-</html>
-
-    <?php 
+<?php 
 }
 else{
-    header('location: login.php');
+    header('location: ../../index.php');
 }
 ?>
+

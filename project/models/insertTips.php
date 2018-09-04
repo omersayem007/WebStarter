@@ -2,10 +2,10 @@
 
 require "db.php";
 
-function saveUser($name,$password,$dob){
+function insertTips($tips,$time){
     $conn = DBconnection();
 
-    $sql= "INSERT into userinfo values('','$name', '$password','','$dob')";
+    $sql= "INSERT into tips values('','$time', '$tips' )";
 
     if(mysqli_query($conn, $sql)){
         return true;

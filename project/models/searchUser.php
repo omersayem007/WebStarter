@@ -1,6 +1,6 @@
 <?php
 
-require "../models/db.php";
+require "db.php";
 
 
 function searchUser($username,$password){
@@ -25,5 +25,28 @@ if($isvalid == "validuser"){
 
 
 }
+
+
+function getData($username ,$password){
+
+    $conn = DBconnection();
+$sql= "SELECT * from userinfo";
+$result = mysqli_query($conn, $sql);
+
+
+while($row = mysqli_fetch_assoc($result)){
+
+    if( $username == $row['name'] && $password == $row['password'] ){
+         $type=$row['type'];
+    }
+}
+
+return $type ;
+
+
+
+
+}
+
 
 ?>

@@ -2,10 +2,10 @@
 
 require "db.php";
 
-function saveUser($name,$password,$dob){
+function deleteTips($id){
     $conn = DBconnection();
 
-    $sql= "INSERT into userinfo values('','$name', '$password','','$dob')";
+    $sql= "delete from tips where id=".$id;
 
     if(mysqli_query($conn, $sql)){
         return true;

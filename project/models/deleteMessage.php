@@ -2,10 +2,10 @@
 
 require "db.php";
 
-function saveUser($name,$password,$dob){
+function deleteMessage($id){
     $conn = DBconnection();
 
-    $sql= "INSERT into userinfo values('','$name', '$password','','$dob')";
+    $sql= "delete from message where id=".$id;
 
     if(mysqli_query($conn, $sql)){
         return true;

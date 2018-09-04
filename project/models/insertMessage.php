@@ -2,10 +2,10 @@
 
 require "db.php";
 
-function saveUser($name,$password,$dob){
+function insertMessage($userId,$message,$time){
     $conn = DBconnection();
 
-    $sql= "INSERT into userinfo values('','$name', '$password','','$dob')";
+    $sql= "INSERT into message values('','$userId', '$message' ,'$time' )";
 
     if(mysqli_query($conn, $sql)){
         return true;

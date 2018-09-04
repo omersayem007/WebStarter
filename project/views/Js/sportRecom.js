@@ -368,6 +368,79 @@ var  weatherIcons= {
 
 
 
+var  health= {
+    20: {
+      "label": "Great Wheather for football"
+    },
+    21: {
+        "label": "Great Wheather for cricket"
+      },
+
+      22: {
+        "label": "Great Wheather for football"
+        
+      },
+      23: {
+        "label": "Great Wheather for cricket"
+        
+      },
+      24: {
+        "label": "Great Wheather for football"
+        
+      },
+      25: {
+        "label": "Great Wheather for tanis"
+        
+      },
+      26: {
+        "label":"Great Wheather for football"
+        
+      },
+      27: {
+        "label": "Great Wheather for tanis"
+        
+      },
+      28: {
+        "label": "Great Wheather for football"
+        
+      },
+      29: {
+        "label": "Great Wheather for tanis"
+        
+      },
+      30: {
+        "label": "Great Wheather for cricket"
+        
+      },
+      31: {
+        "label": "Great Wheather for cricket"
+        
+      },
+      32: {
+        "label": "Great Wheather for football"
+        
+      },
+      33: {
+        "label": "Great Wheather for tanis"
+       
+      },
+      34: {
+        "label": "Great Wheather for football"
+        
+      },
+      35: {
+        "label": "Great Wheather for cricket"
+       
+      },
+      36: {
+        "label": "Great Wheather for cricket"
+        
+      },
+
+  };
+
+
+
 
 
 var apiLinkDS = "https://api.openweathermap.org/data/2.5/forecast?q=Dhaka&appid=e106cc09123fb248672ad6d8a4e724ff";
@@ -378,67 +451,81 @@ var apiLinkDS = "https://api.openweathermap.org/data/2.5/forecast?q=Dhaka&appid=
 
         console.log(data);
 
-        
 
-        for(var i=0 ;i<10;i++){
+        for(var i=0 ;i<=32 ;){
 
             var date=data.list[i].dt_txt ;
-            var temp=Math.floor(data.list[i].main.temp)-273+"°" ;
+            var temp=Math.floor(data.list[i].main.temp)-273+"'C" ;
+            var rTemp=Math.floor(data.list[i].main.temp)-273 ;
             var cloud= data.list[i].weather[0].description;
             var pressure = data.list[i].main.pressure;
             var humidity =data.list[i].main.humidity ;
 
             var dorn="";
-        var today = new Date();
-        var hour = today.getHours();
-
-        if (hour > 6 && hour < 20) {
-          //Day time
-         dorn = "day-";
-      
-      } else {
-          //Night time
-         dorn ="night-";
-      }
-
-        var prefix = 'wi wi-';
-        var code = data.list[i].weather[0].id
-        var icon = weatherIcons[code].icon;
-
-        if( dorn=="night-" && icon=="sunny"){
-          icon = prefix+ dorn + "clear";
-
-        }
-        else{
-          icon = prefix+ dorn + icon ;
-
-        }
-
-        
-     $("#flex-container").append("<div class='card' id='flex-item' >"+
-        "<div class='card-content'>"+
-        "<div class='media'>"+
-            "<div class='media-left'>"+
-              "<figure class='image is-48x48'>"+
-                '<i class="'+icon+'" ></i>'+
-              "</figure>"+
-            "</div>"+
-            "<div class='media-content'>"+
-             "<p class='title is-4'>"+temp+"</p>"+
-              "<p class='subtitle is-6'>"+cloud+"</p>"+
-            "</div>"+
-          "</div>"+
-      
-          "<div class='content'>"+
-             "<a>Weather</a>"+
-            "<br>"+
-            "<time datetime='2016-1-1'>"+date+"</time>"+
-            "</div>"+
-            "</div>"+
-            "</div>");  
-
-        }
+            var today = new Date();
+            var hour = today.getHours();
     
+            if (hour > 6 && hour < 20) {
+              //Day time
+             dorn = "day-";
+          
+          } else {
+              //Night time
+             dorn ="night-";
+          }
+    
+            var prefix = 'wi wi-';
+            var code = data.list[i].weather[0].id
+            var icon = weatherIcons[code].icon;
+    
+            if( dorn=="night-" && icon=="sunny"){
+              icon = prefix+ dorn + "clear";
+    
+            }
+            else{
+              icon = prefix+ dorn + icon ;
+    
+            }
+
+            var select
+
+            $( ".select" )
+  .change(function () {
+    var str = "";
+    $( "select option:selected" ).each(function() {
+      str += $( this ).text() + " ";
+      console.log(str);
+    });
+    
+  })
+  .change();
+
+            $("#flex-container").append("<div class='card' id='flex-item' >"+
+            "<div class='card-content'>"+
+            "<div class='media'>"+
+                "<div class='media-left'>"+
+                  "<figure class='image is-48x48'>"+
+                    '<i class="'+icon+'" ></i>'+
+                  "</figure>"+
+                "</div>"+
+                "<div class='media-content'>"+
+                 "<p class='title is-4'>"+temp+"</p>"+
+                  "<p class='subtitle is-6'>"+cloud+"</p>"+
+                "</div>"+
+              "</div>"+
+          
+              "<div class='content'>"+
+                 "<a>@bulmaio</a>"+
+                "<a href='#'>#css</a> <a href='#'>#responsive</a>"+
+                "<br>"+
+                "<time datetime='2016-1-1'>"+health[rTemp].label+"</time>"+
+                "</div>"+
+                "</div>"+
+                "</div>");  
+           
+           
+            i=i+8;
 
         }
+    }
   });

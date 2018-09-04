@@ -1,99 +1,136 @@
 <?php
+error_reporting(0);
 session_start();
-if( isset( $_SESSION['userSession'] )  || isset($_COOKIE['abc']) ){
-    include "horizontalNav.php";
-    ?>
+if( $_SESSION['userSession']=="123"  || $_COOKIE['abc'] == "123" ){
 
+    ?>
 <html>
 
 <head>
     <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.0/css/bulma.min.css">
+    <link rel="stylesheet" href="../css/menuStyle.css">
+    <link rel="stylesheet" href="../css/cardStyle.css">
+    <link rel="stylesheet" href="../css/weather-icons.min.css">
 </head>
 
 <body>
-<table border="1"  height="550px" width="850px" align="center">
-        <tr>
-                <td height="550px" width="50px">
 
-                                    <table  height="555px" width="50px" >
-                                        <tr><tr><td ><a href="#">Now</a></td></tr>
-                                        <tr><td ><a href="recommendation.php"> Movie  </a></td></tr>
-                                        <tr><td ><a href="music.php"> Music  </a></td></tr>
-                                        <tr><td> <a href="food.php"> Food  </a></td></tr>
-                                        <tr><td > <a href="travel.php"> Travel </a></td></tr>
-                                        <tr><td > <a href="home.php"> Home </a></td></tr>
-                                    </table>
-                </td>
-                
-                <td height="455px" width="845px" align="left" valign="top">
-                        <table border="1" height="55px" width="845px" >
-                                            <tr >
-                                                <td colspan="2" align="center" valign="center">
-                                                    <h3>This Weekend destinations ! <br/></h3>
+                    <div class="columns">
+                    <div class="column is-one-fifth">
 
-                                                </td>
-                                            </tr>
+                        <aside class="menu">
+                        <ul class="menu-list" >
 
-                                            <tr >
-                                        <td>
+<li>
+    <a class="navbar-item" href="home.php" style="color:white" >
+    Now 
+    </a>
+</li>
 
-                                        <table border="1"  width="850px">
-                                            <tr height="230px"> 
-                                                <td>
-                                                <img src="saintmartin.jpg"></br>
-                                                Saint Martin </br>
-                                                Temparature : 25 °C</br>
-                                                humidity : 50%
-                                                 </td>
-                                                <td>
-                                                <img src="saintmartin.jpg">
-                                                </br>
-                                                Saint Martin </br>
-                                                Temparature : 25 °C</br>
-                                                humidity : 50%
-                                                 </td>
-                                             <tr>
+<li>
+    <a class="navbar-item" href="social.php" style="color:white">
+    social 
+    </a>
 
-                                             <tr height="230px"> 
-                                                <td>
-                                                <img src="saintmartin.jpg"></br>
-                                                Saint Martin </br>
-                                                Temparature : 25 °C</br>
-                                                humidity : 50%
-                                                 </td>
-                                                <td>
-                                                <img src="saintmartin.jpg">
-                                                </br>
-                                                Saint Martin </br>
-                                                Temparature : 25 °C</br>
-                                                humidity : 50%
-                                                 </td>
-                                             <tr>
+    <a class="navbar-item" href="feedBack.php" style="color:white">
+    Feedback
+    </a>
+</li>
 
-                                        </table>
-                                        </td>
+<li>
+    <a class="navbar-item" href="experts.php" style="color:white">
+    Experts Analysis
+    </a>
+</li>
 
-                                        </tr>
+</ul>
 
-                                        </table>
-                        </td>
-                        
-                        </tr>
+<ul class="menu-list">
 
-                </td>
-
-        </tr>
+<li>
+  <a style="color:white" >Forecast</a>
+  <ul>
+    <li><a style="color:white" href="hourly.php">Hourly</a></li>
+    <li><a style="color:white" href="weekly.php">Weekly</a></li>
+  </ul>
+</li>
+</ul>
 
 
+<ul class="menu-list">
 
-</table>
+<li>
+  <a style="color:white" >Recommendation </a>
+  <ul>
+    <li><a style="color:white" href="health.php">Personalized </a></li>
+    <li><a style="color:white" href="food.php">Food</a></li>
+    <li><a style="color:white" href="travel.php">Travel</a></li>
+    <li><a style="color:white" href="#">Movie</a></li>
+    <li><a style="color:white" href="#">Music</a></li>
+  </ul>
+</li>
+</ul>
+
+<ul class="menu-list">
+
+<li>
+  <a style="color:white"  href="prayer.php">Prayer Time </a>
+</li>
+</ul>
+    <ul>
+    <li>
+        <a class="navbar-item" href="userTips.php" style="color:white">
+            Tips 
+        </a>
+    </li>
+    </ul>
+
+    <li>
+        
+            <button class="button is-primary" onclick="window.location.href='logout.php'">Logout</button>
+       
+    </li>
+
+</ul>
+                    </aside>
+
+
+                    </div>
+
+
+                    <!-- tiles starts -->
+                        <div class="column "  >
+
+                            <section class="columns"  >
+
+                                <aside  class="column is-half" id="flex-container">
+
+                                </aside>
+
+
+                            </section>
+
+
+                    <!-- tiles End -->
+
+                    </div>
+                    
+
+
+                    </div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="../js/travelRecom.js"></script>
+
 </body>
 
 </html>
 
-    <?php 
+<?php 
 }
 else{
-    header('location: login.php');
+    header('location: ../../index.php');
 }
 ?>

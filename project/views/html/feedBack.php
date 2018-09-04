@@ -5,6 +5,10 @@ css">
 <link rel="stylesheet" href="../css/weather-icons.min.css">
 
 
+
+
+<body>
+
 <?php
 error_reporting(0);
 session_start();
@@ -12,8 +16,6 @@ if( $_SESSION['userSession']=="123"  || $_COOKIE['abc'] == "123" ){
   
     ?>
 
-
-<body>
 
 <div class="columns">
   <div class="column is-one-fifth">
@@ -93,7 +95,6 @@ if( $_SESSION['userSession']=="123"  || $_COOKIE['abc'] == "123" ){
     </li>
 
 </ul>
-
 </aside>
 
 
@@ -103,30 +104,20 @@ if( $_SESSION['userSession']=="123"  || $_COOKIE['abc'] == "123" ){
 <!-- tiles starts -->
     <div class="column" >
 
-                                    <section class="columns" >
+        <div class="column "  >
 
-										<aside  class="column is-half" id="flex-container">
+        <section>
 
-                      <table class='table'>
-                      <thead id="head">
-                      <tr><th>Date</th><th>fajr</th>
-                      <th>shurooq</th><th>dhuhr</th>
-                      <th>asr</th><th>maghrib</th>
-                      <th>isha</th></tr>
-                      </thead>
+            <form  action="../../controllers/postFeedback.php" method="POST" >
 
-                      <tbody id="data">
-                      
-                      </tbody>
+                <textarea class="textarea" name="message" value="" placeholder="Please share your experience to us !" rows="10"></textarea>
+                <button class="button is-success" name="submit">
+                Post
+                </button>
 
-                      </table>
+            </form>        
 
-                    
-
-										</aside>
-									</section>
-        
-
+        </section>
 
   <!-- tiles End -->
 
@@ -136,23 +127,23 @@ if( $_SESSION['userSession']=="123"  || $_COOKIE['abc'] == "123" ){
 
 </div>
 
+</body>
+
 <style>
-  section{
 
-      position: absolute ;
-      top:220px;
-      right:200px;
-  }
+    section{
+        position: absolute;
+        top:150px;
+        right:400px;
+    }
+    .textarea{
 
+        width:300px;
+
+    }
 
 
 </style>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="../js/prayerTime.js"></script>
-
-
-</body>
 
 <?php 
 }

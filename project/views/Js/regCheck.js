@@ -88,11 +88,8 @@ const year = getValue("year");
 
 if( name=="" || email =="" || userId =="" || password =="" || confirmPassword =="" || day=="" || month=="" || year =="" ){
 
-    var elements = document.getElementsByClassName("errorText");
-    for( var i =0 ;i<elements.length ;i++){
-        elements[i].innerHTML = "Don't leave these field Empty !";
-    }
-
+    alert("Dont Leave these fields empty !");
+    
     return false ;
 }
 else{

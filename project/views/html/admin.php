@@ -1,108 +1,109 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.0/css/bulma.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.
+css">
+<link rel="stylesheet" href="../css/menuStyle.css">
+<link rel="stylesheet" href="../css/adminStyle.css">
+<link rel="stylesheet" href="../css/cardStyle.css">
+<link rel="stylesheet" href="../css/weather-icons.min.css">
+
 <?php
+error_reporting(0);
 session_start();
-if( isset( $_SESSION['userSession']  ) || isset($_COOKIE['abc']) ){
-    include "horizontalNav.php";
+if( $_SESSION['userSession']=="321"  || $_COOKIE['abc'] == "321" ){
+
     ?>
 
-<html>
-
-<head>
-    <title></title>
-</head>
-
 <body>
-<table border="1"  height="550px" width="850px" align="center">
-        <tr>
-                <td height="550px" width="50px">
 
-                                    <table  height="555px" width="50px" >
-                                        <tr><tr><td ><a href="#">Now</a></td></tr>
-                                        <tr><td ><a href="admin.php"> Feedback </a></td></tr>
-                                        <tr><td ><a href="adminTips.php"> Tips  </a></td></tr>
-                                        <tr><td> <a href="logout.php"> logout  </a></td></tr>
-                                    </table>
-                </td>
+<div class="columns">
+  <div class="column is-one-fifth">
+
+      <aside class="menu">
+
+  <ul class="menu-list" >
+
+    <li>
+        <a class="navbar-item" href="admin.php" style="color:white" >
+        Home
+        </a>
+    </li>
+
+    <li>
+        <a class="navbar-item" href="tips.php" style="color:white">
+        PostTips
+        </a>
+    </li>
+
+  </ul>
+
+  </ul>
+
+        <li>
+            
+                <button class="button is-primary" onclick="window.location.href='logout.php'">Logout</button>
+           
+        </li>
+
+    </ul>
+
+</aside>
+
+
+  </div>
+
+
+<!-- tiles starts -->
+    <div class="column" >
+
+    <section class="columns" >
+
+        <aside  class="column is-half" id="flex-container">
+
+            <?php
+
+require "../../models/getMessage.php"; 
+
+$result = getMessage();
+
+while($row = mysqli_fetch_assoc($result)){
+    echo "<article class='message'>
+                    <div class='message-header'>
+                        <p>".$row['time']."</p>
+                        <form action='../../controllers/deleteController.php' method='post' >
+                        <button class='delete' aria-label='delete' name='delete' value='delete'></button>
+                        <input type='hidden' name='id' value='".$row['id']."'/>
+                        </form>  
+                    </div>
+                    <div class='message-body'>".$row['message']."</div>
+                </article>" ;
+            }
+
+?>
+
                 
-                <td height="455px" width="845px" align="left" valign="top">
-                        <table border="1" height="55px" width="845px" >
-                                            <tr >
-                                                <td colspan="2" align="center" valign="center">
-                                                    <h3>WellCome Admin <br/></h3>
 
-                                                </td>
-                                            </tr>
+        </aside>
 
-                                            <tr align="center" >
-                                                <td>
-                                                    <table border="1"  width="850px">
-
-                                                        <tr height="100px" align="center" >
-                                                        <td>
-                                                         Hello your weather forcast isn't working in my area.</br>
-                                                         Location : Banani,Dhaka</br>
-                                                         <i>5 feb 2018 :: 10:02am</i>
-                                                         </br></br>
-                                                         <input type="textarea" name="message" value=""></br>
-                                                         <input type="submit" name="reply" value="Reply">
-                                                        </td>
-                                                        </tr>
-
-                                                        <tr height="100px" align="center" >
-                                                        <td>
-                                                         Hello your weather forcast isn't working in my area.</br>
-                                                         Location : Banani,Dhaka</br>
-                                                         <i>5 feb 2018 :: 10:02am</i>
-                                                         </br></br>
-                                                         <input type="textarea" name="message" value=""></br>
-                                                         <input type="submit" name="reply" value="Reply">
-                                                        </td>
-                                                        </tr>
-
-                                                        <tr height="100px" align="center" >
-                                                        <td>
-                                                         Hello your weather forcast isn't working in my area.</br>
-                                                         Location : Banani,Dhaka</br>
-                                                         <i>5 feb 2018 :: 10:02am</i>
-                                                         </br></br>
-                                                         <input type="textarea" name="message" value=""></br>
-                                                         <input type="submit" name="reply" value="Reply">
-                                                        </td>
-                                                        </tr>
-
-                                                         <tr height="100px" align="center" >
-                                                        <td>
-                                                         Hello your weather forcast isn't working in my area.</br>
-                                                         Location : Banani,Dhaka</br>
-                                                         <i>5 feb 2018 :: 10:02am</i>
-                                                         </br></br>
-                                                         <input type="textarea" name="message" value=""></br>
-                                                         <input type="submit" name="reply" value="Reply">
-                                                        </td>
-                                                        </tr>
-
-                                                    </table>
-                                                </td>
-                                             </tr>
-
-                        </table>
-                </td>
-                        
-        </tr>
-
-        </td>
-
-        </tr>
+    </section>
 
 
+        
 
-</table>
+
+  <!-- tiles End -->
+
+  </div>
+  
+
+
+</div>
+
 </body>
 
-</html>
-
-    <?php 
+<?php 
 }
 else{
-    header('location: login.php');
+    header('location: ../../index.php');
 }
 ?>
+

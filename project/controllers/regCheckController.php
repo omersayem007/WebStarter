@@ -12,9 +12,11 @@ require "../models/saveUser.php";
 					$month 		= $_POST['month'];
 					$year 		= $_POST['year'];
 					$userID		=$_POST['userId'];
-                    $password =$_POST['password'];
+					$password =$_POST['password'];
+					
+					$date = $day.'-'.$month.'-'.$year ;
 
-					if(saveUser($name,$password)){
+					if(saveUser($name,$password,$date)){
 						header("location: ../index.php");
 					}else{
 						header("location: ../views/html/registration.php?status=error");

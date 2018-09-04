@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.
 css">
 <link rel="stylesheet" href="../css/menuStyle.css">
+<link rel="stylesheet" href="../css/cardStyle.css">
 <link rel="stylesheet" href="../css/weather-icons.min.css">
 
 
@@ -9,8 +10,10 @@ css">
 error_reporting(0);
 session_start();
 if( $_SESSION['userSession']=="123"  || $_COOKIE['abc'] == "123" ){
-  
+   
     ?>
+
+
 
 
 <body>
@@ -93,7 +96,6 @@ if( $_SESSION['userSession']=="123"  || $_COOKIE['abc'] == "123" ){
     </li>
 
 </ul>
-
 </aside>
 
 
@@ -103,28 +105,37 @@ if( $_SESSION['userSession']=="123"  || $_COOKIE['abc'] == "123" ){
 <!-- tiles starts -->
     <div class="column" >
 
-                                    <section class="columns" >
+    <section class="columns"  >
 
-										<aside  class="column is-half" id="flex-container">
+        <aside  class="column is-half" id="flex-container">
 
-                      <table class='table'>
-                      <thead id="head">
-                      <tr><th>Date</th><th>fajr</th>
-                      <th>shurooq</th><th>dhuhr</th>
-                      <th>asr</th><th>maghrib</th>
-                      <th>isha</th></tr>
-                      </thead>
 
-                      <tbody id="data">
-                      
-                      </tbody>
+                        <?php
 
-                      </table>
+        require "../../models/getTips.php"; 
 
-                    
+        $result = getMessage();
 
-										</aside>
-									</section>
+        while($row = mysqli_fetch_assoc($result)){
+            echo "<article class='message'>
+                            <div class='message-header'>
+                                <p>".$row['date']."</p>
+                                <form action='../../controllers/deleteController2.php' method='post' >
+                                <button class='delete' aria-label='delete' name='delete' value='delete'></button>
+                                <input type='hidden' name='id' value='".$row['id']."'/>
+                                </form>  
+                            </div>
+                            <div class='message-body'>".$row['tiptext']."</div>
+                        </article>" ;
+                    }
+
+                ?>
+
+        </aside>
+
+    </section>
+
+
         
 
 
@@ -136,22 +147,6 @@ if( $_SESSION['userSession']=="123"  || $_COOKIE['abc'] == "123" ){
 
 </div>
 
-<style>
-  section{
-
-      position: absolute ;
-      top:220px;
-      right:200px;
-  }
-
-
-
-</style>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="../js/prayerTime.js"></script>
-
-
 </body>
 
 <?php 
@@ -160,4 +155,3 @@ else{
     header('location: ../../index.php');
 }
 ?>
-

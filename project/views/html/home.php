@@ -22,12 +22,13 @@ if( $_SESSION['userSession']=="123"  || $_COOKIE['abc'] == "123" ){
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="../js/currentWeather.js"></script>
+<script src="../js/searchWeather.js"></script>
 
 </html>
 
 <?php 
 }
 else{
-    header('location: login.php');
+    header('location: ../../index.php');
 }
 ?>

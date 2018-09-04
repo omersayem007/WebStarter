@@ -411,8 +411,6 @@ var  weatherIcons= {
           icon = prefix+ dorn + icon ;
 
         }
-
-        console.log(icon);
         
         console.log('<i class="'+icon+' wi-fw" ></i>');
 

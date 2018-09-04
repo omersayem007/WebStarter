@@ -1,3 +1,10 @@
+<?php
+error_reporting(0);
+session_start();
+if( $_SESSION['userSession']=="123"  || $_COOKIE['abc'] == "123" ){
+   
+    ?>
+
 <div class="tile is-ancestor" id="tiles">
   <div class="tile is-vertical is-8">
 
@@ -70,3 +77,10 @@
     </article>
   </div>
 </div>
+
+<?php 
+}
+else{
+    header('location: ../../index.php');
+}
+?>

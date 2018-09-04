@@ -1,8 +1,8 @@
 .menu{
 
-    background-color: #07575B;
+    background-color: #242526;
     width: 30%;
-    
+    height: 100%;
 
 
 }
@@ -18,12 +18,12 @@
 body{
 
 
-    background-color: #66A5AD; 
+    background-color: #f7f7f7; 
 }
 
 .infoTile{
 
-    background-color: #ffffff;
+    background-color: #C4DFE6;
 }
 
 .wi-fw{

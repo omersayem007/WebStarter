@@ -1,22 +1,28 @@
 
 <?php
 	require "../models/searchUser.php";
+	
 	session_start();
 	
 	if(isset($_POST['submit'])){
 
 		$username = $_POST['username'];
 		$password = $_POST['password'];
-		$userType = $_POST['userType'];
+
+	
 
 		 $exits = searchUser($username,$password);
+
+		 $data = getData($username,$password);
+
+		 echo $data ;
 
 			if($exits){
 
 
-				if($userType =="Admin"){
+				if($data =="Admin"){
 
-					$_SESSION['userSession'] = "123";
+					$_SESSION['userSession'] = "321";
 				header("location: ../views/html/admin.php ");
 
 				}

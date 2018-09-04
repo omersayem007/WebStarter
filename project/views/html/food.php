@@ -1,124 +1,136 @@
 <?php
+error_reporting(0);
 session_start();
-if( isset( $_SESSION['userSession']) || isset($_COOKIE['abc']) ){
-    include "horizontalNav.php";
+if( $_SESSION['userSession']=="123"  || $_COOKIE['abc'] == "123" ){
+   
     ?>
-
 <html>
 
 <head>
     <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.0/css/bulma.min.css">
+    <link rel="stylesheet" href="../css/menuStyle.css">
+    <link rel="stylesheet" href="../css/cardStyle.css">
+    <link rel="stylesheet" href="../css/weather-icons.min.css">
 </head>
 
 <body>
-<table border="1"  height="550px" width="850px" align="center">
-        <tr>
-                <td height="550px" width="50px">
 
-                                    <table  height="555px" width="50px" >
-                                        <tr><tr><td ><a href="#">Now</a></td></tr>
-                                        <tr><td ><a href="recommendation.php"> Movie  </a></td></tr>
-                                        <tr><td ><a href="music.php"> Music  </a></td></tr>
-                                        <tr><td> <a href="food.php"> Food  </a></td></tr>
-                                        <tr><td > <a href="travel.php"> Travel </a></td></tr>
-                                        <tr><td > <a href="home.php"> Home </a></td></tr>
-                                    </table>
-                </td>
-                
-                <td height="455px" width="845px" align="left" valign="top">
-                        <table border="1" height="55px" width="845px" >
-                                            <tr >
-                                                <td colspan="2" align="center" valign="center">
-                                                    <h3>Food offer today<br/></h3>
+                    <div class="columns">
+                    <div class="column is-one-fifth">
 
-                                                </td>
-                                            </tr>
+                        <aside class="menu">
+                        <ul class="menu-list" >
 
-                                            <tr >
-                                        <td>
+<li>
+    <a class="navbar-item" href="home.php" style="color:white" >
+    Now 
+    </a>
+</li>
 
-                                        <table border="1"  width="850px">
+<li>
+    <a class="navbar-item" href="social.php" style="color:white">
+    social 
+    </a>
 
-                                        <tr height="500px">
+    <a class="navbar-item" href="feedBack.php" style="color:white">
+    Feedback
+    </a>
+</li>
 
-                                        <td>
-                                            <table border="1" >
+<li>
+    <a class="navbar-item" href="experts.php" style="color:white">
+    Experts Analysis
+    </a>
+</li>
 
-                                                <tr >
-                                                <td width="420px" height="160px">
-                                                <img src="burger.jpg" height="120px" width="200px">
-                                                </td>
-                                                <td width="100px">Burger King</br><i>Basundhora Road</i></td>
-                                                </tr>
+</ul>
 
-                                               <tr >
-                                                <td width="420px" height="160px">
-                                                <img src="fuchka.jpg" height="120px" width="200px">
-                                                </td>
-                                                <td width="100px">Burger King</br><i>Basundhora Road</i></td>
-                                                </tr>
+<ul class="menu-list">
 
-                                                <tr >
-                                                <td width="420px" height="160px">
-                                                <img src="chola.jpg" height="120px" width="200px">
-                                                </td>
-                                                <td width="100px">Burger King</br><i>Basundhora Road</i></td>
-                                                </tr>
-
-                                            </table>
-                                        
-                                        </td>
-
-                                        <td>
-                                            <table border="1" >
-                                                <tr >
-                                                <td width="420px" height="160px">
-                                                <img src="dosa.jpg" height="120px" width="200px">
-                                                </td>
-                                                <td width="100px">Burger King</br><i>Basundhora Road</i></td>
-                                                </tr>
+<li>
+  <a style="color:white" >Forecast</a>
+  <ul>
+    <li><a style="color:white" href="hourly.php">Hourly</a></li>
+    <li><a style="color:white" href="weekly.php">Weekly</a></li>
+  </ul>
+</li>
+</ul>
 
 
-                                               <tr >
-                                                <td width="420px" height="160px">
-                                                <img src="khicuri.jpg" height="120px" width="200px">
-                                                </td>
-                                                <td width="100px">Burger King</br><i>Basundhora Road</i></td>
-                                                </tr>
+<ul class="menu-list">
+
+<li>
+  <a style="color:white" >Recommendation </a>
+  <ul>
+    <li><a style="color:white" href="health.php">Personalized </a></li>
+    <li><a style="color:white" href="food.php">Food</a></li>
+    <li><a style="color:white" href="travel.php">Travel</a></li>
+    <li><a style="color:white" href="#">Movie</a></li>
+    <li><a style="color:white" href="#">Music</a></li>
+  </ul>
+</li>
+</ul>
+
+<ul class="menu-list">
+
+<li>
+  <a style="color:white"  href="prayer.php">Prayer Time </a>
+</li>
+</ul>
+    <ul>
+    <li>
+        <a class="navbar-item" href="userTips.php" style="color:white">
+            Tips 
+        </a>
+    </li>
+    </ul>
+
+    <li>
+        
+            <button class="button is-primary" onclick="window.location.href='logout.php'">Logout</button>
+       
+    </li>
+
+</ul>
+                    </aside>
 
 
-                                                <tr >
-                                                <td width="420px" height="160px">
-                                                <img src="kalavhuna.jpg" height="120px" width="200px">
-                                                </td>
-                                                <td width="100px">Burger King</br><i>Basundhora Road</i></td>
-                                                </tr>
+                    </div>
 
 
-                                            </table>
-                                        </td>
+                    <!-- tiles starts -->
+                        <div class="column "  >
 
-                                        </tr>
+                            <section class="columns" >
 
-                                        </table>
-                        </td>
-                        
-                        </tr>
+                                <aside  class="column is-half" id="flex-container">
 
-                </td>
-
-        </tr>
+                                </aside>
 
 
+                            </section>
 
-</table>
+
+                    <!-- tiles End -->
+
+                    </div>
+                    
+
+
+                    </div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="../js/foodRecom.js"></script>
+
 </body>
 
 </html>
 
-    <?php 
+<?php 
 }
 else{
-    header('location: login.php');
+    header('location: ../../index.php');
 }
 ?>

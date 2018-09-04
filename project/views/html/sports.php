@@ -1,122 +1,124 @@
-<?php
-session_start();
-if( isset( $_SESSION['userSession'] ) || isset($_COOKIE['abc']) ){
-    include "horizontalNav.php";
-    ?>
 
 <html>
 
 <head>
     <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.0/css/bulma.min.css">
+    <link rel="stylesheet" href="../css/menuStyle.css">
+    <link rel="stylesheet" href="../css/cardStyle.css">
+    <link rel="stylesheet" href="../css/weather-icons.min.css">
 </head>
 
 <body>
-<table border="1"  height="550px" width="850px" align="center">
-        <tr>
-                <td height="550px" width="50px">
 
-                                    <table  height="555px" width="50px" >
-                                        <tr><tr><td ><a href="#">Now</a></td></tr>
-                                        <tr><tr><td ><a href="health.php"> Health</a></a></td></tr>
-                                        <tr><td ><a href="home.php"> Go home </a></td></tr>
-                                        
-                                    </table>
-                </td>
-                
-                <td height="455px" width="845px" align="left" valign="top">
-                        <table border="1" height="55px" width="845px" >
-                                            <tr >
-                                                <td colspan="2" align="center" valign="center">
-                                                    <h3> Recreation For this Weather ! <br/></h3>
-                                                    <select>
-                                                    <option name="sprots" value="cricket"> Cricket </option>
-                                                    <option name="sprots" value="football"> Football </option>
-                                                    <option name="sprots" value="fishing"> Fishing </option>
-                                                    <option name="sprots" value="tenis"> Tenis </option>
-                                                    <option name="sprots" value="badminton"> Badminton</option>
-                                                    <option name="sprots" value="cycling"> Cycling </option>
-                                                    <option name="sprots" value="jogging"> Jogging </option>
-                                                    </select>
+                    <div class="columns">
+                    <div class="column is-one-fifth">
 
-                                                </td>
-                                            </tr>
+                        <aside class="menu">
+                    <p class="menu-label" style="color:white">
+                        General
+                    </p>
+                    <ul class="menu-list" >
 
-                                            <tr align="center" >
-                                                <td>
-                                                    <table border="1"  width="850px">
-                                                        <tr>
-                                                            <td height="280px">
+                        <li>
+                            <a class="navbar-item" href="#" style="color:white" >
+                            Now 
+                            </a>
+                        </li>
 
-                                                            Current Weather</br>
-                                                            71°C</br>
-                                                            Sunny</br>
-                                                            <b>Best For Cricket</b></br>
+                        <li>
+                            <a class="navbar-item" href="social.php" style="color:white">
+                            social 
+                            </a>
+                        </li>
 
-                                                            
-                                                            </td>
-                                                            <td height="200px">
+                        <li>
+                            <a class="navbar-item" href="experts.php" style="color:white">
+                            Experts Analysis
+                            </a>
+                        </li>
 
-                                                             Current Weather</br>
-                                                            71°C</br>
-                                                            Sunny</br>
-                                                            <b>Best For Cricket</b></br>
-                                                            
-                                                            </td>
-                                                            <td height="200px">
-                                                            Current Weather</br>
-                                                            71°C</br>
-                                                            Sunny</br>
-                                                            <b>Best For Cricket</b></br>
-                                                            
-                                                            </td>
-                                                        </tr>
+                    </ul>
+                    <p class="menu-label" style="color:white">
+                        Recommendation 
+                    </p>
 
+                    <ul class="menu-list">
+                            <li>
+                                <a class="navbar-item" href="health.php" style="color:white">
+                                                Personalized Forecast
+                                </a>
+                            </li>
 
-                                                        <tr>
-                                                            <td height="200px">
-                                                            Current Weather</br>
-                                                            71°C</br>
-                                                            Sunny</br>
-                                                            <b>Best For Cricket</b></br>
-                                                            
-                                                            </td>
-                                                            <td height="200px">
-                                                            Current Weather</br>
-                                                            71°C</br>
-                                                            Sunny</br>
-                                                            <b>Best For Cricket</b></br>
-                                                            </td>
-                                                            <td height="200px">
-                                                            Current Weather</br>
-                                                            71°C</br>
-                                                            Sunny</br>
-                                                            <b>Best For Cricket</b></br>
-                                                            </td>
-                                                        </tr>
+                            <li>
+                                <a class="navbar-item" href="recommendation.php" style="color:white">
+                                    Recommendation
+                                </a>
 
-                                                    </table>
-                                                </td>
-                                             </tr>
+                            </li>
 
-                        </table>
-                </td>
-                        
-        </tr>
+                            <li>
+                            <a class="navbar-item" href="tips.php" style="color:white">
+                                Tips 
+                                
+                            </a>
 
-        </td>
+                            </li>
 
-        </tr>
+                            <li>
+                                <a class="navbar-item" href="moreNav.php" style="color:white">
+                                More
+                                </a>
+                            </li>
+
+                            <li>
+                                
+                                    <button class="button is-primary" onclick="window.location.href='logout.php'">Logout</button>
+                            
+                            </li>
+
+                        </ul>
+
+                    </aside>
 
 
+                    </div>
 
-</table>
+
+                    <!-- tiles starts -->
+                        <div class="column "  >
+
+                            <section class="columns" style="border:1px solid red" >
+
+                                <aside  class="column is-half" id="flex-container">
+
+                                <div class="select">
+                                    <select>
+                                        <option selected="selected">Football</option>
+                                        <option>Cricket</option>
+                                        <option>tenis</option>
+                                    </select>
+                                </div>
+
+                                </aside>
+
+
+                            </section>
+
+
+                    <!-- tiles End -->
+
+                    </div>
+                    
+
+
+                    </div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="../js/sportRecom.js"></script>
+
+
 </body>
 
 </html>
-
-    <?php 
-}
-else{
-    header('location: login.php');
-}
-?>
